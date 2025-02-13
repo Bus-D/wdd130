@@ -1,3 +1,42 @@
+.main-grid { 
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px; 
+  text-align: center;
+}
+
+body {
+  background-color: grey;
+  width: 500px;
+  height: 400px;
+}
+
+h1 {
+  font-size: 75px;
+  grid-column: 1 / span 2; 
+  grid-row: 1/2;
+  z-index: 1;
+}
+
+h6 {
+  font-size: 25px;
+  color: #D2042D;
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+
+img {
+  height: 250px;
+  width: 250px;
+  background-color: white;
+  grid-column: 1 / 2; 
+  grid-row: 1/2;
+}
+
+
+
+
+/*
 main{
   text-align: center;
 }
@@ -29,7 +68,6 @@ footer img {
 
 
 
-/*
 nav {
   background-color: steelblue;
   color: white;
