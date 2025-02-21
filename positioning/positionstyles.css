@@ -150,11 +150,12 @@
 /* Activity 6 styles */ 
 .content6 {
   /* This is the parent of the activity 6 boxes. */
-  height: 500px;
-  width: 500px;
+  height: 750px;
+  width: 750px;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(6, 1fr);
+  justify-content: center;
 }
 .red6 {
   width: 100%; 
