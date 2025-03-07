@@ -189,8 +189,10 @@ h2 {
 }
 
 .river-text {
+    min-height: 200px;
     height: 200px;
     overflow: scroll; 
+
 }
 
 footer {
