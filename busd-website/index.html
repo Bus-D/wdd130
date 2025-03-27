@@ -5,15 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bus-D Designs</title>
     <link rel="stylesheet" href="styles/styles.css">
+
+    <script>
+        window.addEventListener("scroll", scrollFunction, { passive: true });
+        window.addEventListener("load", updateBodyPadding);
+        window.addEventListener("resize", updateBodyPadding);
+    
+        let isScrolling = false;
+    
+        function scrollFunction() {
+            if (!isScrolling) {
+                window.requestAnimationFrame(() => {
+                    var header = document.getElementById("header");
+                    var logo = document.querySelector(".logo");
+    
+                    if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+                        header.style.padding = "10px 10px"; // Small header when scrolling
+                        logo.style.height = "100px";
+                        logo.style.width = "100px";
+                    } else {
+                        header.style.padding = "30px 10px"; // Bigger header before scrolling
+                        logo.style.height = "150px";
+                        logo.style.width = "150px";
+                    }
+    
+                    updateBodyPadding(); // Recalculate padding
+                    isScrolling = false;
+                });
+            }
+            isScrolling = true;
+        }
+    
+        function updateBodyPadding() {
+            var headerHeight = document.getElementById("header").offsetHeight;
+            document.body.style.paddingTop = headerHeight + "px";
+        }
+    </script>
+    
+    
+    
+    
+    
+    
+
 </head>
 <body>
-    <header>
+    <header id="header">
         <a id="logo_link" href="index.html">
             <img class="logo" src="images/Logo2.png" alt="Bus-D Designs Logo">
         </a>
         <nav>
             <div class="nav-links">
-                <a href="index.html">Home</a>
+                <a class="active" href="index.html">Home</a>
                 <a href="contact.html">Contact/About</a>
                 <a href="faq.html">FAQ</a>
             </div>
