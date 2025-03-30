@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact/About</title>
     <link rel="stylesheet" href="styles/styles.css">
+    
+    
 </head>
 <body>
-    <header>
+    <header id="static-header">
         <a id="logo_link" href="index.html">
             <img class="logo" src="images/Logo2.png" alt="Bus-D Designs Logo">
         </a>
@@ -22,13 +24,58 @@
     </header>
 
     <!--Hero: multiple pictures? or logo that goes down into small logo, text-->
-    <div id="hero">
+    <div id="hero-contact">
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <div class="numbertext">1/6</div>
+                <img src="images/slideshow-1.jpg" style="width: 100%">
+                <div class="slide-text"></div>
+            </div>
+            <div class="mySlides fade">
+                <div class="numbertext">2/6</div>
+                <img src="images/slideshow-2.jpg" style="width: 100%">
+            </div>
+            <div class="mySlides fade">
+                <div class="numbertext">3/6</div>
+                <img src="images/slideshow-3.jpg" style="width: 100%">
+                <div class="slide-text"></div>
+            </div>
+            <div class="mySlides fade">
+                <div class="numbertext">4/6</div>
+                <img src="images/slideshow-4.jpg" style="width: 100%">
+                <div class="slide-text"></div>
+            </div>
+            <div class="mySlides fade">
+                <div class="numbertext">5/6</div>
+                <img src="images/slideshow-5.jpg" style="width: 100%">
+                <div class="slide-text"></div>
+            </div>
+            <div class="mySlides fade">
+                <div class="numbertext">6/6</div>
+                <img src="images/slideshow-6.jpg" style="width: 100%">
+                <div class="slide-text"></div>
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+                <span class="dot" onclick="currentSlide(5)"></span>
+                <span class="dot" onclick="currentSlide(6)"></span>
+            </div>
+        </div>
+
+
         <!--<img id="hero-img" src="" alt="placeholder pic">-->
         <h1 id="hero-header">Welcome to Bus-D Designs</h1>
         <h2 id="hero-text">Your one stop shop for all things design and website related</h2>
     </div>
 
-    <main class="main-grid">
+    <main class="contact-main-grid">
         <!--about text 1: header, text-->
         <section id="atext1">
             <h3 class="aheader">About</h3>
@@ -39,28 +86,26 @@
             </p>
         </section>
 
-        <form action="/my-handling-form-page" method="post">
-            <p>
+        <div id="contact-form-container">
+            <form id="contact-form" action="submit.php" method="post">
+                <h3>Contact Me</h3>
+                
+                <!-- Name Input -->
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="user-name" placeholder="Your Name" >
-            </p>
-            <p>
-                <label for="mail">Email</label>
-                <input type="email" id="mail" name="user-email" placeholder="youremail@email.com" >
-            </p>
-            <p>
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
-            </p>
-            <p>
-                <label for="msg">Message:</label>
-                <textarea id="msg" name="user-message" placeholder="What can I make for you?"></textarea>
-            </p>
-        </form>
-
-        <p class="button">
-            <button type="submit">Send your message</button>
-        </p>
+                <input type="text" id="name" name="name" required>
+                
+                <!-- Email Input -->
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <!-- Message Textarea -->
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                
+                <!-- Submit Button -->
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
 
         <div id="feedback"></div>
 
@@ -92,5 +137,53 @@
             </a>
         </div>
     </footer>
+
+    <script>
+        let slideIndex = 1;
+    
+        window.onload = function() {
+            showSlides(slideIndex);
+    
+            // Auto slide every 8 seconds
+            setInterval(() => {
+                plusSlides(1);
+            }, 8000);
+        }
+    
+        // Next/previous controls
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+    
+        // Thumbnail image controls
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+    
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+    
+            if (n > slides.length) {
+                slideIndex = 1;
+            }
+            if (n < 1) {
+                slideIndex = slides.length;
+            }
+    
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+    
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+    
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+    </script>
+    
 </body>
 </html>

@@ -19,15 +19,17 @@
                     var header = document.getElementById("header");
                     var logo = document.querySelector(".logo");
     
-                    if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-                        header.style.padding = "10px 10px"; // Small header when scrolling
-                        logo.style.height = "100px";
-                        logo.style.width = "100px";
-                    } else {
-                        header.style.padding = "30px 10px"; // Bigger header before scrolling
-                        logo.style.height = "150px";
-                        logo.style.width = "150px";
-                    }
+                    if (document.body.id === "home-page") {
+                        if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+                            header.style.padding = "10px 10px";
+                            logo.style.height = "150px";
+                            logo.style.width = "150px";
+                        } else {
+                            header.style.padding = "30px 10px";
+                            logo.style.height = "250px";
+                            logo.style.width = "250px";
+                        }
+                }
     
                     updateBodyPadding(); // Recalculate padding
                     isScrolling = false;
@@ -42,14 +44,8 @@
         }
     </script>
     
-    
-    
-    
-    
-    
-
 </head>
-<body>
+<body id="home-page">
     <header id="header">
         <a id="logo_link" href="index.html">
             <img class="logo" src="images/Logo2.png" alt="Bus-D Designs Logo">
