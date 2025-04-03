@@ -48,10 +48,10 @@ header {
 }
 /*Non-home page header*/
 #static-header {
-    padding: 20px 10px; /* Smaller padding for other pages */
+    padding: 20px 10px; 
     background-color: var(--nav-background-color);
     width: 100%;
-    position: relative; /* No fixed position so it doesn’t overlap content */
+    position: relative;
     z-index: 99;
 }
 #static-header .logo {
@@ -91,13 +91,15 @@ nav {
 }
 nav a {
     font-size: 25px;
+    font-family: var(--paragraph-font) !important;
     text-decoration: none;
     background-color: var(--accent2-color);
     padding: 5px 10px;
 }
 
-hav a:link, nav a:visited {
+nav a:link, nav a:visited {
     color: var(--nav-link-color);
+    font-family: var(--paragraph-font) !important;
 }
 
 nav a:hover {
@@ -287,19 +289,25 @@ body:not(#home-page) {
     line-height: 1.4;
     text-align: justify;
 }
+.text2 {
+    margin-top: -2.9em;
+}
 
 #aimg1 {
     float: right;
     margin-left: 20px;
-    margin-bottom: 10px;
-    width: 150px;
+    margin-top: -25px;
+    width: 125px;
+}
+.aimgtxt {
+    font-size: 9px;
 }
 
 #aimg2 {
-    float: right;
-    margin-left: 20px;
-    margin-top: 20px;
+    float:right;
+    padding-top: 40px;
     width: 150px;
+    margin-bottom: -250px;
 }
 
 #atext1::after {
